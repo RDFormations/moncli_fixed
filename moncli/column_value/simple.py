@@ -213,7 +213,7 @@ class LocationValue(ComplexNullValue):
     allow_casts = (dict, str)
 
     def _convert(self, value):
-        return Location(lat=value['lat'],lng=value['lng'],address=value['address'])
+        return Location(lat=value.get('lat',0),lng=value.get('lng',0),address=value.get('address',None))
 
     def _cast(self, value):
 
